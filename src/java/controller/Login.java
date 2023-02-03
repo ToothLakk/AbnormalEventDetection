@@ -6,10 +6,13 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,8 +29,15 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    String u = "anh";
+    String p = "12345";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        RequestDispatcher disp = request.getRequestDispatcher("Login.jsp");
+        disp.forward(request, response);
+        
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -55,6 +65,18 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        if(request.getParameter("logout") != null){
+            HttpSession session = request.getSession();
+            session.removeAttribute("isLoggedIn");
+        }
+        
+        Cookie ck[] = request.getCookies();
+        if(ck != null && ck.length > 1){
+            request.setAttribute("ckUsername", ck[1].getName());
+            request.setAttribute("ckPassword", ck[1].getValue());
+        }
+        
         processRequest(request, response);
     }
 
@@ -69,7 +91,29 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String userName = request.getParameter("Username");
+        String password = request.getParameter("Password");
+        String remember = request.getParameter("remember");
+        
+        if (userName.equals(u) && password.equals(p)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("isLoggedIn","1");
+            
+            if (remember != null) {
+                Cookie ck = new Cookie(userName, password);
+                ck.setMaxAge(3600);
+                response.addCookie(ck);
+            }
+            
+            response.sendRedirect("Home");
+        }
+        else{
+            request.setAttribute("error", "1");
+            processRequest(request, response);
+        }
+        
+        //processRequest(request, response);
     }
 
     /**
