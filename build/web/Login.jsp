@@ -6,8 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-        <head>
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -22,7 +22,7 @@
     </head>
     <body>
         <div id="logreg-forms">
-            <form class="form-signin" action="Login" method="POST">
+            <form class="form-signin" id="form" action="Login" method="POST">
                 <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Please Sign in</h1>
                 <div class="mb-2">
                 <input type="text" class="form-control" id="usename" name="Username" value="<%=username%>"  placeholder="Username" >
@@ -37,12 +37,13 @@
                 <button class="btn btn-success btn-block" type="submit" value="Login" >Log in</button>
                 <a style="color: blue;" href="register.html">Click here to Register</a>
             </form>
+            <br>
+            <%if(error != null){
+                if(error.equals("1")){%>
+                <div>User name or password incorrect. Please enter again</div>
+                <%}
+            }%>
         </div>
-                <br>
-        <%if(error != null){
-            if(error.equals("1")){%>
-            <div>User name or password incorrect. Please enter again</div>
-            <%}
-        }%>
+        <script src="js/loginScrip.js"></script>
     </body>
 </html>

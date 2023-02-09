@@ -16,11 +16,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="Home" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">Camera</a>
                 <a href="service.html" class="nav-item nav-link">History</a>
-                <a href="service.html" class="nav-item nav-link">Settings</a>
-                <a href="" class="nav-item nav-link">Help</a>
+                <a href="Setting" class="nav-item nav-link">Settings</a>
+                <a href="Help" class="nav-item nav-link">Help</a>
                 <a href="" class="nav-item nav-link nav-contact bg-secondary text-white px-5 ms-lg-5"><i class=""></i>Login</a>
             </div>
         </div>
