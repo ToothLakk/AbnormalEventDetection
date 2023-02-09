@@ -17,7 +17,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="Home" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">Camera</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Camera</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="CameraInfo?camid=1" class="dropdown-item">Cam 1</a>
+                        <a href="CameraInfo?camid=2" class="dropdown-item">Cam 2</a>
+                        <a href="CameraInfo?camid=3" class="dropdown-item">Cam 3</a>
+                        <a href="CameraInfo?camid=4" class="dropdown-item">Cam 4</a>
+                        <a href="CameraInfo?camid=5" class="dropdown-item">Cam 5</a>
+                    </div>
+                </div>
                 <a href="service.html" class="nav-item nav-link">History</a>
                 <a href="Setting" class="nav-item nav-link">Settings</a>
                 <a href="Help" class="nav-item nav-link">Help</a>
