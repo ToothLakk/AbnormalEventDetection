@@ -33,7 +33,7 @@ public class test extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        User user = UserDAO.getUserByUserName("anh");
+        User user = UserDAO.getUserByUserName("sdf");
         
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
@@ -45,7 +45,12 @@ public class test extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet test at " + request.getContextPath() + "</h1>");
-            out.println("<p>" + user.getUserId() + " | " + user.getUserName() + " | " + user.getRole() + "</p>");
+            if (user != null){
+                out.println("<p>" + user.getUserId() + " | " + user.getUserName() + " | " + user.getRole() + "</p>");
+            }
+            else {
+                out.println("<p>not found</p>");
+            }
             out.println("</body>");
             out.println("</html>");
         }

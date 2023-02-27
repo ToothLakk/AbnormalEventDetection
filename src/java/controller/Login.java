@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.User;
+import modelDAO.UserDAO;
 
 /**
  *
@@ -96,24 +98,30 @@ public class Login extends HttpServlet {
         String password = request.getParameter("Password");
         String remember = request.getParameter("remember");
         
-        if (userName.equals(u) && password.equals(p)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("isLoggedIn","1");
-            
-            if (remember != null) {
-                Cookie ck = new Cookie(userName, password);
-                ck.setMaxAge(3600);
-                response.addCookie(ck);
+        User user = UserDAO.getUserByUserName(userName);
+        
+        if (user!= null) {
+            if (password.equals(user.getPassword())){
+                HttpSession session = request.getSession();
+                session.setAttribute("isLoggedIn", "1");
+
+                if (remember != null) {
+                    Cookie ck = new Cookie(userName, password);
+                    ck.setMaxAge(3600);
+                    response.addCookie(ck);
+                }
+                response.sendRedirect("Home");
             }
-            
-            response.sendRedirect("Home");
+            else {
+                request.setAttribute("error", "1");
+                processRequest(request, response);
+            }
         }
-        else{
+        else {
             request.setAttribute("error", "1");
             processRequest(request, response);
         }
-        
-        //processRequest(request, response);
+    
     }
 
     /**
