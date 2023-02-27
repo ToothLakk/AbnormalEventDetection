@@ -112,12 +112,14 @@ public class LoginFilter implements Filter {
         HttpServletResponse httpRes = (HttpServletResponse) response;
         HttpSession session = httpReq.getSession();
         String loginURI = httpReq.getContextPath() + "/Login";
+        String testURI = httpReq.getContextPath() + "/test";
 
         boolean loggedIn = session != null && session.getAttribute("isLoggedIn") != null;
         boolean loginRequest = httpReq.getRequestURI().equals(loginURI);
         boolean indexRequest = httpReq.getRequestURI().equals(httpReq.getContextPath() + "/");
+        boolean testing = httpReq.getRequestURI().equals(testURI);
         
-        if (loggedIn || loginRequest || indexRequest) {
+        if (loggedIn || loginRequest || indexRequest || testing) {
             chain.doFilter(request, response);
         } else {
             httpRes.sendRedirect(loginURI);

@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/AbnormalEventDetection/web/Setting.jsp</file>
-            <file>file:/D:/AbnormalEventDetection/src/java/controller/Setting.java</file>
-            <file>file:/D:/AbnormalEventDetection/web/Login.jsp</file>
-            <file>file:/D:/AbnormalEventDetection/src/java/controller/Help.java</file>
-            <file>file:/D:/AbnormalEventDetection/web/Menu.jsp</file>
-            <file>file:/D:/AbnormalEventDetection/web/Help.jsp</file>
-            <file>file:/D:/AbnormalEventDetection/src/java/controller/Login.java</file>
-            <file>file:/D:/AbnormalEventDetection/src/java/controller/Home.java</file>
+            <file>file:/D:/AbnormalEventDetection/src/java/controller/test.java</file>
+            <file>file:/D:/AbnormalEventDetection/src/java/model/User.java</file>
+            <file>file:/D:/AbnormalEventDetection/src/java/modelDAO/DBcontext.java</file>
+            <file>file:/D:/AbnormalEventDetection/src/java/modelDAO/UserDAO.java</file>
         </group>
     </open-files>
 </project-private>
