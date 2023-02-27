@@ -95,11 +95,65 @@
         </div>
     </div>
     <!-- Carousel End -->
+    <style>
+        #container {
+            margin: 2px;
+            width: 500px;
+            height: 375px;
+            padding-left: 250px;
+            padding-top: 10px;
+            padding-right: 250px;
+        }
 
+        #videoElement {
+            width: 500px;
+            height: 375px;
+            background-color: #666;
+        }
 
-    <di>
-        <h1>Camera here</h1>
-    </di>
+        #events {
+            margin: 10px auto;
+            width: 500px;
+            height: 375px;
+        }
+
+        #eventsStreaming {
+            width: 500px;
+            height: 375px;
+            background-color: aqua;
+        }
+ 
+        #start-record,
+        #stop-record,
+        #download-video {
+            display: none;
+        }
+    </style>
+
+    <div class="row g-5 ">
+        <div class="col-lg-4" id="container">
+            <div class="position-relative rounded-top">
+                <video autoplay id="videoElement"></video>
+            </div>
+        </div>
+        <div class="col-lg-4 " id="container">
+            <div class="position-relative rounded-top">
+                <div id="eventsStreaming">
+                    <h1>Events Streaming</h1>
+                </div>
+            </div>
+        </div>
+        <div id="#container" style="padding-left: 300px;">
+            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3  ">History</a>
+            <a href="" class="btn btn-secondary py-md-3 px-md-5 me-3 ">Events</a>
+            <button id="start-camera" class="btn btn-secondary py-md-3 px-md-5 ">Start Camera</button>
+            <button id="start-record" class="btn btn-secondary py-md-3 px-md-5 ">Start Recording</button>
+            <button id="stop-record" class="btn btn-secondary py-md-3 px-md-5  ">Stop Recording</button>
+            <a id="download-video" download="test.webm" class="btn btn-secondary py-md-3 px-md-5 ">Download Video</a>
+        </div>
+    </div>
+    
+    
     <jsp:include page="Footer.jsp"></jsp:include>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -111,5 +165,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/camera.js"></script>
 </body>
 </html>
